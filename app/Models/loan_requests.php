@@ -3,8 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class loan_requests extends Model
 {
-    //
+    protected $fillable = [
+        'equipment_id',
+        'borrower_name',
+        'borrower_nim',
+        'borrower_email',
+        'loan_date',
+        'expected_return_date',
+        'purpose',
+        'status',
+        'total_estimated_fee',
+    ];
+
+    public function equipment(): BelongsTo{
+        return $this->belongsTo(Equipment::class);
+    }
 }

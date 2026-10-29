@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class categories extends Model
 {
-    //
+ protected $fillable = ['name', 'code']; 
+    public function enrollments(): HasMany { 
+        return $this->hasMany(equipments::class);
 }
